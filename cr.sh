@@ -85,8 +85,9 @@ main() {
 
   if [[ -n "${changed_charts[*]}" ]]; then
     install_helm
-    helm_login
-
+    # rely on docker login being done
+    # helm_login
+ 
     for chart in "${changed_charts[@]}"; do
       local desc name version info=()
       readarray -t info <<<"$(chart_info "$chart")"
